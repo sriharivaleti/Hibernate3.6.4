@@ -1,0 +1,36 @@
+package com.hari.main;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import com.hari.model.UserAccount;
+
+public class UserAccountTest {
+	
+	public static void main(String[] args) {
+		
+		SessionFactory sf = new Configuration().configure().buildSessionFactory();
+		Session s = sf.openSession();
+		s.beginTransaction();
+		UserAccount uac = new UserAccount();
+		uac.setUserName("sreehari");
+		uac.setPassword("expense1!");
+		
+		s.save(uac);
+		uac = new UserAccount();
+		uac.setUserName("smith");
+		uac.setPassword("expense1!");
+		s.save(uac);
+		s.getTransaction().commit();
+		s.close();
+		
+		uac = new UserAccount();
+		s = sf.openSession();
+		s.beginTransaction();
+		uac =(UserAccount)s.get(UserAccount.class, 1);
+		System.out.println(uac);
+		uac =(UserAccount)s.get(UserAccount.class, 2);
+	}
+
+}

@@ -1,0 +1,18 @@
+package com.hari.modal;
+
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+
+@Embeddable
+public class Address {
+	
+	@Column(name = "FlatName")
+	private String address1;
+	@Column(name = "StreetName")
+	private String address2;
+	@Column(name = "AreaName")
+	private String address3;
+	
+	
+
+}

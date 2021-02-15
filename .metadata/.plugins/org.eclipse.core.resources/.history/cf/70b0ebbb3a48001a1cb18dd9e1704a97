@@ -1,0 +1,16 @@
+package com.hari.model;
+
+import javax.annotation.Generated;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity(name = "User_Account")
+public class UserAccount {
+	
+	@Id @Generated
+	@Column(name = "UserID")
+	private int userAccountId;
+	
+
+}
